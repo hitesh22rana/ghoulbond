@@ -1,6 +1,7 @@
 # Modules
 import os
 from prettytable import PrettyTable
+from colorama import Fore
 
 # main function
 def passwords():
@@ -46,7 +47,7 @@ def passwords():
     # SSID Table
 
     if(len(ssid_key) == 0):
-        print(f"\033[1;31;40mNo Saved Wifi Password's are found\n[-]Aborting!!\n")
+        print(Fore.RED+f"No Saved Wifi Password's are found\n[-]Aborting!!\n")
 
     ssid_table = PrettyTable()
     ssid_table.add_column("SSID",ssid_name)
@@ -54,7 +55,7 @@ def passwords():
     ssid_table.add_column("Cipher",ssid_cipher)
     ssid_table.add_column("Key",ssid_key)
 
-    print(f"\n\033[1;33;40m{ssid_table}\n")
+    print(Fore.BLUE + f"\n{ssid_table}\n")
 
 if __name__ == '__main__':
     passwords()

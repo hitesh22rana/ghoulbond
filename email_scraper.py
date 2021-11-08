@@ -5,13 +5,13 @@ import requests.exceptions
 import urllib.parse
 from collections import deque
 import re
+from colorama import Fore
 
 # main function
 def email_scraper():
 
-    user_url = str(input('\033[1;31;40m\n[+] Enter Target URL To Scan : '))
+    user_url = str(input(Fore.RED+'[+] Enter Target URL To Scan : '))
     urls = deque([user_url])
-
     scraped_urls = set()
     emails = set()
 
@@ -31,7 +31,7 @@ def email_scraper():
 
             path = url[:url.rfind('/')+1] if '/' in parts.path else url
 
-            print('\033[1;32;40m[%d] Processing %s' % (count, url))
+            print(Fore.CYAN+'[%d] Processing %s' % (count, url))
 
             try:
                 response = requests.get(url)
@@ -53,15 +53,15 @@ def email_scraper():
                     urls.append(link)
 
     except KeyboardInterrupt:
-        print('\033[1;31;40m[-] Closing!\n')
+        print(Fore.RED+'\n[-] Closing!\n')
     
     if(len(emails) == 0):
-        print("\nNo Email's found\n")
+        print(Fore.RED+"No Email's found\n")
     
     else:
-        print("\nAll found Email's\n")
+        print(Fore.GREEN +"\nAll found Email's\n")
         for mail in emails:
-            print(f"\033[1;33;40m{mail}")
+            print(Fore.BLUE + f"{mail}")
 
 if __name__ == '__main__':
     email_scraper()
