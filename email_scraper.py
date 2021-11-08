@@ -62,6 +62,8 @@ def email_scraper():
         print(Fore.GREEN +"\nAll found Email's\n")
         for mail in emails:
             print(Fore.YELLOW + f"{mail}")
+    
+    print()
 
 if __name__ == '__main__':
     email_scraper()
