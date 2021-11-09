@@ -4,6 +4,8 @@ from email_scraper import email_scraper
 from password_grabber import passwords
 from address import ip_and_mac_address
 from system_info import sys_info
+from portscanner import port_scan_main
+
 from colorama import Fore
 from termcolor import colored
 import logging, coloredlogs
@@ -23,7 +25,8 @@ if __name__ == '__main__':
 [2] Get IP and MAC address
 [3] Get all Wifi password's 
 [4] Scrape all Email's from target website
-[5] Quit
+[5] Port Scanner
+[6] Quit
     ''')
 
     while(True):
@@ -34,6 +37,7 @@ if __name__ == '__main__':
             menu_input = int(input(Fore.GREEN+"Enter you'r choice : "))
         
             if(type(menu_input) == int):
+               
                 # Menu-choice
                 if(menu_input == 1):
                     sys_info()
@@ -48,6 +52,9 @@ if __name__ == '__main__':
                     email_scraper()
                     
                 elif(menu_input == 5):
+                    port_scan_main()
+
+                elif(menu_input == 6):
                     print(Fore.YELLOW + "\nThanks For Using ghoulbond\n")
                     break
                     
