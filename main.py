@@ -69,5 +69,5 @@ if __name__ == '__main__':
             else:
                 print(Fore.RED + "\nInvalid Input!\n")
             
-        except:
-            print(Fore.RED + "\nInvalid Input!\n")
+        except Exception as e:
+            print(Fore.RED + f"\n{e}\n")
