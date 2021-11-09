@@ -5,6 +5,7 @@ from password_grabber import passwords
 from address import ip_and_mac_address
 from system_info import sys_info
 from portscanner import port_scan_main
+from phone_details import get_details
 
 from colorama import Fore
 from termcolor import colored
@@ -26,7 +27,8 @@ if __name__ == '__main__':
 [3] Get all Wifi password's 
 [4] Scrape all Email's from target website
 [5] Port Scanner
-[6] Quit
+[6] Phone Number details
+[7] Quit
     ''')
 
     while(True):
@@ -55,6 +57,9 @@ if __name__ == '__main__':
                     port_scan_main()
 
                 elif(menu_input == 6):
+                    get_details()
+
+                elif(menu_input == 7):
                     print(Fore.YELLOW + "\nThanks For Using ghoulbond\n")
                     break
                     
