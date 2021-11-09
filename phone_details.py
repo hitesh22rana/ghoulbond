@@ -1,9 +1,26 @@
+# Modules
 import phonenumbers
 from phonenumbers import carrier
+from phonenumbers import timezone
 
 # Built in function for country name
 from phonenumbers import geocoder
 from colorama import Fore
+
+def time_zone_details(number):
+    # Provides Time zone details of the registered number
+    ch_number = phonenumbers.parse(number)
+
+    try:
+        timeZone = timezone.time_zones_for_number(ch_number)
+        print(Fore.RED + "TimeZone : " , end = "")
+
+        for individual_time_zone in timeZone:
+            print(Fore.GREEN + f"{individual_time_zone}" , end = " ")
+
+    except:
+        print(Fore.RED + "Does not seems like a valid number enter valid number")
+        
 
 def service_provider_details(number):
     # Provide service provider details
@@ -45,7 +62,8 @@ def get_details():
     print()
     country_history(number)
     service_provider_details(number)
-    print()
+    time_zone_details(number)
+    print('\n')
 
 
 if __name__ == '__main__':
