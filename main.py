@@ -6,6 +6,7 @@ from address import ip_and_mac_address
 from system_info import sys_info
 from portscanner import port_scan_main
 from phone_details import get_details
+from location import target_location
 
 from colorama import Fore
 from termcolor import colored
@@ -28,7 +29,8 @@ if __name__ == '__main__':
 [4] Scrape all Email's from target website
 [5] Port Scanner
 [6] Phone Number details
-[7] Quit
+[7] Target Geo-Location
+[8] Quit
     ''')
 
     while(True):
@@ -36,7 +38,7 @@ if __name__ == '__main__':
         
         try:
             # Menu-input    
-            menu_input = int(input(Fore.GREEN+"Enter you'r choice : "))
+            menu_input = int(input(Fore.GREEN+"\nEnter you'r choice : "))
         
             if(type(menu_input) == int):
                
@@ -60,6 +62,9 @@ if __name__ == '__main__':
                     get_details()
 
                 elif(menu_input == 7):
+                    target_location()
+
+                elif(menu_input == 8):
                     print(Fore.YELLOW + "\nThanks For Using ghoulbond\n")
                     break
                     
@@ -70,4 +75,4 @@ if __name__ == '__main__':
                 print(Fore.RED + "\nInvalid Input!\n")
             
         except Exception as e:
-            print(Fore.RED + f"\n{e}\n")
+            print(Fore.RED + "\nInvalid Input!\n")
