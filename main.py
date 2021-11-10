@@ -13,7 +13,7 @@ from termcolor import colored
 import logging, coloredlogs
 
 logger = logging.getLogger(f"Logger")
-coloredlogs.install(logger=logger)
+coloredlogs.install(logger = logger)
 
 
 if __name__ == '__main__':
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     logo()
 
     # Menu
-    print(Fore.RED+'''
+    print(Fore.RED + '''
 [1] System Information
 [2] Get IP and MAC address
 [3] Get all Wifi password's 
@@ -31,7 +31,7 @@ if __name__ == '__main__':
 [6] Phone Number details
 [7] Target Geo-Location
 [8] Quit
-    ''')
+''')
 
     while(True):
         
