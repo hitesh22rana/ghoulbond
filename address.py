@@ -21,6 +21,16 @@ def other_than_windows():
     # Hostname
     print(Fore.RED + "Host Name : " + Fore.GREEN + f"{os.popen('hostname').read().strip()}")
     
+    # IP Address's Public
+    public_address = os.popen("host myip.opendns.com resolver1.opendns.com | grep 'myip.opendns.com has' | awk '{print $4}'").read()
+
+    if(len(public_address) == 0):
+        print(Fore.RED + "\nNo information of any (Public) IP address's \n")
+    else:
+        print(Fore.RED + "\nAll gathered Public IP Address's : ")
+        print(Fore.GREEN + public_address , end = '')
+
+
     # IP Address's Private
     if(len(ip_private_address) == 0):
         print(Fore.RED + "No information of any (Private/local) IP address's \n")
@@ -75,6 +85,7 @@ def ip_and_mac_address():
             for individual_host in host_names:
                 print(Fore.GREEN + individual_host , end = '  ')
         print()
+
         # Public IP Address's Public
         if(len(public_address) == 0):
             print(Fore.RED + "\nNo information of any (Public) IP address's \n")
