@@ -7,6 +7,7 @@ from system_info import sys_info
 from portscanner import port_scan_main
 from phone_details import get_details
 from location import target_location
+from keylogger import listener
 
 from colorama import Fore
 from termcolor import colored
@@ -30,7 +31,8 @@ if __name__ == '__main__':
 [5] Port Scanner
 [6] Phone Number details
 [7] Target Geo-Location
-[8] Quit
+[8] KeyLogger
+[9] Quit
 ''')
 
     while(True):
@@ -65,6 +67,10 @@ if __name__ == '__main__':
                     target_location()
 
                 elif(menu_input == 8):
+                    print(Fore.RED + "\nTyped key's data is getting saved in txt file!\n")
+                    listener()
+
+                elif(menu_input == 9):
                     print(Fore.YELLOW + "\nThanks For Using ghoulbond\n")
                     break
                     
