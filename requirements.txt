@@ -1,11 +1,11 @@
 prettytable==2.4.0
 phonenumbers==8.12.36
-coloredlogs==15.0.1
 folium==0.12.1
-colorama==0.4.4
 geocoder==1.38.1
+colorama==0.4.4
 termcolor==1.1.0
 requests==2.26.0
+pynput==1.7.4
+coloredlogs==15.0.1
 beautifulsoup4==4.10.0
 IPy==1.01
-

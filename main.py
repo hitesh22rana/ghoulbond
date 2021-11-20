@@ -36,8 +36,7 @@ if __name__ == '__main__':
 ''')
 
     while(True):
-        
-        
+                
         try:
             # Menu-input    
             menu_input = int(input(Fore.GREEN+"\nEnter you'r choice : "))
