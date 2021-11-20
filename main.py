@@ -8,6 +8,7 @@ from portscanner import port_scan_main
 from phone_details import get_details
 from location import target_location
 from keylogger import listener
+from username_check import username_check
 
 from colorama import Fore
 from termcolor import colored
@@ -32,7 +33,8 @@ if __name__ == '__main__':
 [6] Phone Number details
 [7] Target Geo-Location
 [8] KeyLogger
-[9] Quit
+[9] Username check
+[10] Quit
 ''')
 
     while(True):
@@ -70,6 +72,9 @@ if __name__ == '__main__':
                     listener()
 
                 elif(menu_input == 9):
+                    username_check()
+
+                elif(menu_input == 10):
                     print(Fore.YELLOW + "\nThanks For Using ghoulbond\n")
                     break
                     
