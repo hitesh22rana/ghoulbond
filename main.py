@@ -23,8 +23,10 @@ if __name__ == '__main__':
     # logo print
     logo()
 
-    # Menu
-    print(Fore.RED + '''
+    while(True):
+
+        # Menu
+        print(Fore.RED + '''
 [1] System Information
 [2] Get IP and MAC address
 [3] Get all Wifi password's 
@@ -36,12 +38,10 @@ if __name__ == '__main__':
 [9] Username check
 [10] Quit
 ''')
-
-    while(True):
                 
         try:
             # Menu-input    
-            menu_input = int(input(Fore.GREEN+"\nEnter you'r choice : "))
+            menu_input = int(input(Fore.GREEN+"Enter you'r choice : "))
         
             if(type(menu_input) == int):
                
@@ -83,6 +83,8 @@ if __name__ == '__main__':
                 
             else:
                 print(Fore.RED + "\nInvalid Input!\n")
-            
-        except Exception as e:
-            print(Fore.RED + "\nInvalid Input!\n")
+
+        except KeyboardInterrupt:
+            print(Fore.RED+'\n\n[-] Closing!')
+            print(Fore.YELLOW + "Thanks For Using ghoulbond\n")
+            break
