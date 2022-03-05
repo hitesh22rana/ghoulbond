@@ -28,9 +28,9 @@ Latency : {best['latency']}
 
 """Get Download and Upload Speed"""
 def downloadAndUploadTest():
-    print(Fore.RED + "Performing Speed Test...")
+    print(Fore.RED + "Performing Download Speed Test...")
     downloadSpeed = speedTester.download()
-    print(Fore.RED + "Performing Speed Test...")
+    print(Fore.RED + "Performing Upload Speed Test...")
     uplaodSpeed = speedTester.upload()
     ping = speedTester.results.ping
 

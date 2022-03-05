@@ -12,13 +12,13 @@ Website_list = [
     'https://github.com/',
     'https://codeforces.com/profile/',
     'https://www.codechef.com/users/',
-    'https://replit.com/@'
-    'https://www.hackerearth.com/'
+    'https://replit.com/@',
+    'https://www.hackerearth.com/',
 
     # Social Websites
 
-    'https://www.instagram.com/',
     'https://twitter.com/',
+    'https://www.instagram.com/',
     'https://pinterest.com/',
     'https://www.snapchat.com/add/',
     'https://www.reddit.com/user/',
