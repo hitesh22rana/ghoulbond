@@ -1,4 +1,4 @@
-# Modules
+"""Modules"""
 from bs4 import BeautifulSoup
 import requests
 import requests.exceptions
@@ -7,7 +7,23 @@ from collections import deque
 import re
 from colorama import Fore
 
-# main function
+
+"""Headers For Performance"""
+_headers = {
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36',
+    'Content-Type': 'application/json; charset=utf-8',
+    'server': 'nginx/1.0.4',
+    'x-runtime': '148ms',
+    'etag': '"e1ca502697e5c9317743dc078f67693f"',
+    'Access-Control-Allow-Credentials': 'true',
+    'Content-Encoding': 'gzip'
+}
+
+"""Global Session For Performance"""
+session = requests.session()
+
+
+"""main function"""
 def email_scraper():
 
     user_url = str(input(Fore.RED+'[+] Enter Target URL To Scan : '))
@@ -34,7 +50,7 @@ def email_scraper():
             print(Fore.CYAN+'[%d] Processing %s' % (count, url))
 
             try:
-                response = requests.get(url)
+                response = session.get(url,headers=_headers,timeout=10)
             except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
                 continue
 
