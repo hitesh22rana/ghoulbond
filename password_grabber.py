@@ -1,22 +1,25 @@
-# Modules
+"""Modules"""
 import os
 from prettytable import PrettyTable
 from colorama import Fore
 import platform
 
-# main function
+"""Main function"""
 def passwords():
-    # Check
+
+    """Check"""
     if platform.uname()[0] != 'Windows':
         print(Fore.RED + "This work's only for Windows")
         exit()
     
     else:
-        # os command
+
+        """OS command"""
         ssid_raw = os.popen('netsh wlan show profile').read()
         ssid_raw_array = ssid_raw.split('\n')
 
-        # Arrays to store information
+        """Arrays to store information"""
+
         ssid_name = []
         ssid_authentication = []
         ssid_cipher = []
@@ -51,8 +54,7 @@ def passwords():
                 elif("Key Content            :") in individual:
                     ssid_key.append(individual.replace('Key Content            :','').strip())
 
-        # SSID Table
-
+        """SSID Table"""
         if(len(ssid_key) == 0):
             print(Fore.RED+f"No Saved Wifi Password's are found\n[-]Aborting!!\n")
 
@@ -62,7 +64,7 @@ def passwords():
         ssid_table.add_column("Cipher",ssid_cipher)
         ssid_table.add_column("Key",ssid_key)
 
-        print(Fore.YELLOW + f"\n{ssid_table}\n")
+        print(Fore.LIGHTYELLOW_EX + f"\n{ssid_table}\n")
 
 if __name__ == '__main__':
     passwords()

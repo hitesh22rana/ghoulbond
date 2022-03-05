@@ -1,4 +1,4 @@
-# Modules
+"""Modules"""
 from logo import logo
 from email_scraper import email_scraper
 from password_grabber import passwords
@@ -20,13 +20,13 @@ coloredlogs.install(logger = logger)
 
 if __name__ == '__main__':
     
-    # logo print
+    """logo print"""
     logo()
 
     while(True):
 
-        # Menu
-        print(Fore.RED + '''
+        """Menu"""
+        print(Fore.LIGHTBLACK_EX + '''
 [1] System Information
 [2] Get IP and MAC address
 [3] Get all Wifi password's 
@@ -40,16 +40,18 @@ if __name__ == '__main__':
 ''')
                 
         try:
-            # Menu-input    
+            """Menu-input"""    
             menu_input = int(input(Fore.GREEN+"Enter you'r choice : "))
         
             if(type(menu_input) == int):
                
-                # Menu-choice
+                """Menu-choice"""
                 if(menu_input == 1):
+                    print()
                     sys_info()
 
                 elif(menu_input == 2):
+                    print()
                     ip_and_mac_address()
 
                 elif(menu_input == 3):
