@@ -10,3 +10,4 @@ folium==0.12.1
 coloredlogs==15.0.1
 beautifulsoup4==4.10.0
 IPy==1.01
+psutil==5.9.0
