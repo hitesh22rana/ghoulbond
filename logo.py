@@ -1,3 +1,4 @@
+"""Modules"""
 from colorama import Fore
 
 def logo():

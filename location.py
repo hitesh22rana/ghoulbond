@@ -1,3 +1,4 @@
+"""Modules"""
 import geocoder
 import folium
 from colorama import Fore
