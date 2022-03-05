@@ -1,12 +1,13 @@
-# Modules
+"""Modules"""
 from colorama import Fore
 import requests
 import tldextract
 import time
 
-# Websites list's
+"""Websites list's"""
 Website_list = [
     # Coding Related Websites
+
     'https://leetcode.com/',
     'https://github.com/',
     'https://codeforces.com/profile/',
@@ -14,7 +15,8 @@ Website_list = [
     'https://replit.com/@'
     'https://www.hackerearth.com/'
 
-    # Social Websites 
+    # Social Websites
+
     'https://www.instagram.com/',
     'https://twitter.com/',
     'https://pinterest.com/',
@@ -24,13 +26,25 @@ Website_list = [
     'https://www.quora.com/profile/'
 ]
 
+"""Headers For Performance"""
+_headers = {
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36',
+    'Content-Type': 'application/json; charset=utf-8',
+    'server': 'nginx/1.0.4',
+    'x-runtime': '148ms',
+    'etag': '"e1ca502697e5c9317743dc078f67693f"',
+    'Access-Control-Allow-Credentials': 'true',
+    'Content-Encoding': 'gzip'
+}
+
+"""Global Session For Performance"""
+session = requests.session()
+
 def domain_name(url):
     parsed = tldextract.extract(url)
     return parsed.domain+'.'+parsed.suffix
 
 def username_check():
-    global Website_list
-    
     username = input(Fore.RED + '\n[+] Enter Target Username To Scan : ')
 
     found_list = []
@@ -39,9 +53,7 @@ def username_check():
         try:
             website_name = domain_name(individual_website)
             print(Fore.RED + f'[+] Searching on {website_name}')
-            response = requests.get(individual_website+str(username) , timeout=10)
-
-            time.sleep(2)
+            response = session.get(individual_website+str(username) , timeout=10 , headers=_headers)
 
             if(response.status_code == 200):
                 found_list.append(f'{individual_website}{username}')
