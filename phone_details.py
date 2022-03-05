@@ -2,10 +2,11 @@
 import phonenumbers
 from phonenumbers import carrier
 from phonenumbers import timezone
+from colorama import Fore
 
 """Built in function for country name"""
 from phonenumbers import geocoder
-from colorama import Fore
+
 
 def time_zone_details(number):
     """Provides Time zone details of the registered number"""

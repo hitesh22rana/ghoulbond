@@ -156,7 +156,6 @@ def sys_info():
     try:
         print(Fore.MAGENTA + "Battery Information")
         monitor_battery()
-        print()
     except Exception as e:
         print(Fore.RED + "Error Occured : " + Fore.GREEN + f"{e}")
 

@@ -1,4 +1,4 @@
-"""Modules"""
+"""Internal Modules"""
 from logo import logo
 from email_scraper import email_scraper
 from password_grabber import passwords
@@ -7,9 +7,10 @@ from system_info import sys_info
 from portscanner import port_scan_main
 from phone_details import get_details
 from location import target_location
-from keylogger import listener
 from username_check import username_check
+from speed_test import speedTestResult
 
+"""External Modules"""
 from colorama import Fore
 from termcolor import colored
 import logging, coloredlogs
@@ -34,7 +35,7 @@ if __name__ == '__main__':
 [5] Port Scanner
 [6] Phone Number details
 [7] Target Geo-Location
-[8] KeyLogger
+[8] Internet Speed Test
 [9] Username check
 [10] Quit
 ''')
@@ -70,8 +71,7 @@ if __name__ == '__main__':
                     target_location()
 
                 elif(menu_input == 8):
-                    print(Fore.RED + "\nTyped key's data is getting saved in txt file!\n")
-                    listener()
+                    speedTestResult()
 
                 elif(menu_input == 9):
                     username_check()

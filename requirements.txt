@@ -1,6 +1,5 @@
 tldextract==3.1.2
 geocoder==1.38.1
-pynput==1.7.4
 termcolor==1.1.0
 colorama==0.4.4
 requests==2.26.0
@@ -11,3 +10,4 @@ coloredlogs==15.0.1
 beautifulsoup4==4.10.0
 IPy==1.01
 psutil==5.9.0
+speedtest-cli==2.1.3
