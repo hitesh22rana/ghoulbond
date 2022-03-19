@@ -90,3 +90,6 @@ if __name__ == '__main__':
             print(Fore.RED+'\n\n[-] Closing!')
             print(Fore.YELLOW + "Thanks For Using ghoulbond\n")
             break
+
+        except Exception as e:
+            print(Fore.RED + "\nInvalid Input!")

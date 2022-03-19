@@ -60,7 +60,10 @@ def monitor_network():
 def monitor_battery():
     battery_info = psutil.sensors_battery()
     print(Fore.RED + "Battery Percent : " + Fore.GREEN + f"{battery_info.percent} %")
-    print(Fore.RED + "Time Left : " + Fore.GREEN + f"{round(battery_info.secsleft/60 , 2)} minutes / {round(battery_info.secsleft/3600 , 2)} hrs")
+    if(battery_info.secsleft > 0): 
+        print(Fore.RED + "Time Left : " + Fore.GREEN + f"{round(battery_info.secsleft / 60 , 2)} minutes / {round(battery_info.secsleft/3600 , 2)} hrs")
+    else:
+        print(Fore.RED + "Status : " + Fore.GREEN + "Battery is charging!")
 
 """All System Information Combined"""
 def sys_info(): 

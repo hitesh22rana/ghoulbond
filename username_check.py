@@ -2,7 +2,6 @@
 from colorama import Fore
 import requests
 import tldextract
-import time
 
 """Websites list's"""
 Website_list = [
@@ -17,8 +16,8 @@ Website_list = [
 
     # Social Websites
 
-    'https://twitter.com/',
     'https://www.instagram.com/',
+    'https://twitter.com/',
     'https://pinterest.com/',
     'https://www.snapchat.com/add/',
     'https://www.reddit.com/user/',
@@ -46,7 +45,6 @@ def domain_name(url):
 
 def username_check():
     username = input(Fore.RED + '\n[+] Enter Target Username To Scan : ')
-
     found_list = []
     print()
     for individual_website in Website_list:

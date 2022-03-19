@@ -108,7 +108,7 @@ def fetch_results():
 
                     with open(f'{file_name}',"a") as f:
                         f.write('\n')
-                        f.write('Time in :- ' + 'hours:minutes:seconds' + str(current_time.hour) + ':' + str(current_time.minute) + ':' + str(current_time.hour))
+                        f.write('Time in :- ' + 'hours:minutes:seconds => ' + str(current_time.hour) + ':' + str(current_time.minute) + ':' + str(current_time.hour))
                         f.write('\n')
 
                         for key, values in open_port_details_dict.items():
