@@ -106,6 +106,7 @@ def windows():
     print('\n')
 
 def ip_and_mac_address():
+    print()
     """Check"""
     if platform.uname()[0] != 'Windows':
         other_than_windows()

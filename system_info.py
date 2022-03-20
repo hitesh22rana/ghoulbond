@@ -67,6 +67,7 @@ def monitor_battery():
 
 """All System Information Combined"""
 def sys_info(): 
+    print()
     try:
         my_system = platform.uname()
     except Exception as e:

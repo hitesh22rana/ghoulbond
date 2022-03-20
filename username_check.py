@@ -39,29 +39,37 @@ _headers = {
 """Global Session For Performance"""
 session = requests.session()
 
+"""Domain Name Extractor from Website's URL"""
 def domain_name(url):
     parsed = tldextract.extract(url)
     return parsed.domain+'.'+parsed.suffix
 
+"""Checks Username from each website"""
 def username_check():
-    username = input(Fore.RED + '\n[+] Enter Target Username To Scan : ')
+    username = input(Fore.LIGHTMAGENTA_EX + '\n[+] Enter Target Username To Scan : ')
     found_list = []
     print()
     for individual_website in Website_list:
         try:
             website_name = domain_name(individual_website)
-            print(Fore.RED + f'[+] Searching on {website_name}')
+            print(Fore.LIGHTMAGENTA_EX + f'[+] Searching on {website_name}')
             response = session.get(individual_website+str(username) , timeout=10 , headers=_headers)
 
             if(response.status_code == 200):
-                found_list.append(f'{individual_website}{username}')
-            
+                if(username in response.text):
+                    print(Fore.LIGHTGREEN_EX + f'[-_0] {username} Found on {website_name}.')
+                    found_list.append(f'{individual_website}{username}')   
+                    print()
+                else:
+                    print(Fore.LIGHTYELLOW_EX + f'[!] {username} Not Found on {website_name} Might be a false positive!')
+                    print()
             else:
-                pass
+                print(Fore.LIGHTRED_EX + f'[-] {username} not Found on {website_name}.')
+                print()
 
         except:
             print(Fore.RED + f'Error Occured while! checking {username} on different websites!')
-            print(Fore.RED + '[-] Aborting!')
+            print(Fore.RED + '[-] Aborting!\n')
             break
     
     if(len(found_list) != 0):
@@ -72,5 +80,6 @@ def username_check():
     else:
         print(Fore.RED + f'\nUsername not found on any Websites\n')
 
+"""Main Function"""
 if __name__ == '__main__':
     username_check()
