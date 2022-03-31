@@ -1,6 +1,8 @@
 """Modules"""
 from colorama import Fore
+from bs4 import BeautifulSoup
 import requests
+import lxml
 
 """Headers For Performance"""
 _headers = {
@@ -171,35 +173,60 @@ def username_check():
     }
 
     found_list = []
+
+    notIncluded = ["sorry" , "doesn't exist" , "doesn't" , "Try" , "error" , "nobody" , "not"]
+
     print()
     for individual_website in Website_list:
         URL = Website_list[individual_website]
         try:
             print(Fore.LIGHTMAGENTA_EX + f'[+] Searching on {individual_website}')
             response = session.get(URL , timeout=10 , headers=_headers)
+            soup = BeautifulSoup(response.text , 'lxml')
 
             if(response.status_code == 200):
-                if(username in response.text):
+    
+                flagCount = 0
+                data = " ".join(soup.text.strip().split())
+
+                for each in notIncluded:
+                    if(each in data):
+                        flagCount += 1
+
+                if(flagCount < 2 and username in data):
                     print(Fore.LIGHTGREEN_EX + f'[-_0] {username} was Found on {individual_website}')
                     found_list.append(URL)   
                     print()
-                else:
+
+                elif(flagCount >= 2 and username in data):
                     print(Fore.LIGHTYELLOW_EX + f'[!] {username} was Not Found on {individual_website} Might be a false positive!')
                     print()
+
+                else:
+                    print(Fore.LIGHTRED_EX + f'[-] {username} was not Found on {individual_website}')
+                    print()
+
             else:
                 print(Fore.LIGHTRED_EX + f'[-] {username} was not Found on {individual_website}')
                 print()
 
+        except KeyboardInterrupt:
+            print(Fore.RED+'\n[-] Closing!\n')
+            break
+
         except:
             print(Fore.RED + f'Error Occured while checking! {username} on {individual_website}! Skipping!!')
+            print()
 
     if(len(found_list) != 0):
-        print(Fore.YELLOW + f'\nUsername found on following Websites\n')
+        print(Fore.YELLOW + f'\nUsername was found on following Websites\n')
         for website_found in found_list:
             print(Fore.GREEN + website_found)
         print()
+
     else:
-        print(Fore.RED + f'\nUsername not found on any Websites\n')
+        print(Fore.RED + f'\nUsername was not found on any Websites\n')
+
 
 """Main Function"""
 if __name__ == '__main__':
