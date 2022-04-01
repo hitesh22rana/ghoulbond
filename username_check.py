@@ -24,11 +24,23 @@ def username_check():
     
     """Websites list's"""
     Website_list = {
+        # CODEFORCES
+        'codeforces' : f'https://codeforces.com/profile/{username}',
+        # CODECHEF
+        'codechef' : f'https://www.codechef.com/users/{username}',
+        # REPL.IT
+        'repl_it' : f'https://replit.com/@{username}',
+        # HACKER EARTH 
+        'hacker_earth' : f'https://www.hackerearth.com/{username}',
+        # LEETCODE
+        'leetcode' : f'https://leetcode.com/{username}',
         # INSTAGRAM
         'instagram' : f'https://www.instagram.com/{username}',
+        # SNAPCHAT
+        'snapchat' : f'https://www.snapchat.com/add/{username}',
         # FACEBOOK
         'facebook' : f'https://www.facebook.com/{username}',
-        #TWITTER
+        # TWITTER
         'twitter' : f'https://www.twitter.com/{username}',
         # YOUTUBE
         'youtube' : f'https://www.youtube.com/{username}',
