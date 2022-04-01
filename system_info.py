@@ -7,9 +7,9 @@ import psutil
 """Monitor CPU Times"""
 def monitor_cpu_times():
     cpu_times = psutil.cpu_times()
-    user_time = round(cpu_times.user/3600)
-    system_time = round(cpu_times.system/3600)
-    idle_time = round(cpu_times.idle/3600)
+    user_time = round(cpu_times.user/3600 , 2)
+    system_time = round(cpu_times.system/3600 , 2)
+    idle_time = round(cpu_times.idle/3600 , 2)
     print(Fore.RED + "Time spent on processes by the User : " + Fore.GREEN + f"{user_time} hrs")
     print(Fore.RED + "Time spent on processes by the System : " + Fore.GREEN + f"{system_time} hrs")
     print(Fore.RED + "Time spent on processes by Idle : " + Fore.GREEN + f"{idle_time} hrs")
@@ -52,8 +52,8 @@ def monitor_disk():
 """Monitor Network Requests"""
 def monitor_network():
     io_stats = psutil.net_io_counters()
-    print(Fore.RED + "Total Bytes Sent : " + Fore.GREEN + f"{io_stats.bytes_sent} Bytes")
-    print(Fore.RED + "Total Bytes Recieved : " + Fore.GREEN + f"{io_stats.bytes_recv} Bytes")
+    print(Fore.RED + "Total Bytes Sent : " + Fore.GREEN + f"{round(io_stats.bytes_sent/(1024*1024*1024) , 3)} GB")
+    print(Fore.RED + "Total Bytes Recieved : " + Fore.GREEN + f"{round(io_stats.bytes_recv/(1024*1024*1024) , 3)} GB")
 
 
 """Monitor Batter Usage"""

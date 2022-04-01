@@ -2,7 +2,6 @@
 from colorama import Fore
 from bs4 import BeautifulSoup
 import requests
-import lxml
 
 """Headers For Performance"""
 _headers = {

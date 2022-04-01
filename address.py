@@ -19,7 +19,7 @@ def other_than_windows():
             mac_address.append(individual_name.replace('ether ' , '').strip())
 
     """Hostname"""
-    print(Fore.RED + "Host Name : " + Fore.GREEN + f"{os.popen('hostname').read().strip()}")
+    print(Fore.RED + "Host Name\n" + Fore.GREEN + f"{os.popen('hostname').read().strip()}")
     
     """IP Address's Public"""
     public_address = os.popen("host myip.opendns.com resolver1.opendns.com | grep 'myip.opendns.com has' | awk '{print $4}'").read()
@@ -27,8 +27,8 @@ def other_than_windows():
     if(len(public_address) == 0):
         print(Fore.RED + "\nNo information of any (Public) IP address's \n")
     else:
-        print(Fore.RED + "\nAll gathered Public IP Address's : ")
-        print(Fore.GREEN + public_address , end = '')
+        print(Fore.RED + "\nAll gathered Public IP Address's")
+        print(Fore.GREEN + public_address)
 
 
     """IP Address's Private"""
@@ -36,20 +36,20 @@ def other_than_windows():
         print(Fore.RED + "No information of any (Private/local) IP address's \n")
 
     else:
-        print(Fore.RED + "All gathered IP Address's (Private/local) : " , end = ' ')
+        print(Fore.RED + "All gathered IP Address's (Private/local)")
         for individual_ip in ip_private_address:
-            print(Fore.GREEN + individual_ip , end = '  ')
+            print(Fore.GREEN + individual_ip)
     
     """MAC/Physical Address's"""
     if(len(mac_address) == 0):
         print(Fore.RED + "No information of any MAC/Physical address\n")
         
     else:
-        print(Fore.RED + "\nAll gathered Physical/MAC Address's : " , end = ' ')
+        print(Fore.RED + "\nAll gathered Physical/MAC Address's")
         for individual_mac in mac_address:
-            print(Fore.GREEN + individual_mac , end = '  ')
-
-    print('\n')
+            print(Fore.GREEN + individual_mac)
+    print()
+        
         
 """For windows"""
 def windows():
@@ -74,36 +74,34 @@ def windows():
         print(Fore.RED + "\nHost Name is not found\n")
     
     else:
-        print(Fore.RED + "\nHost Name : " , end = ' ')
+        print(Fore.RED + "\nHost Name")
         for individual_host in host_names:
-            print(Fore.GREEN + individual_host , end = '  ')
-    print()
+            print(Fore.GREEN + individual_host)
 
     """Public IP Address's Public"""
     if(len(public_address) == 0):
         print(Fore.RED + "\nNo information of any (Public) IP address's \n")
     else:
-        print(Fore.RED + "\nAll gathered Public IP Address's : ")
-        print(Fore.GREEN + public_address , end = '')
+        print(Fore.RED + "\nAll gathered Public IP Address's")
+        print(Fore.GREEN + public_address ,end='')
 
     """Private IP Address's"""
     if(len(ip_private_address) == 0):
         print(Fore.RED + "No information of any IP address\n")
     else:
-        print(Fore.RED + "All gathered IP Address's : " , end = ' ')
+        print(Fore.RED + "All gathered IP Address's")
         for individual_ip in ip_private_address:
-            print(Fore.GREEN + individual_ip , end = '  ')
-    print()
+            print(Fore.GREEN + individual_ip)
 
     """MAC/Physical Address's"""
     if(len(mac_address) == 0):
         print(Fore.RED + "No information of any MAC/Physical address\n")
     
     else:
-        print(Fore.RED + "\nAll gathered Physical/MAC Address's : " , end = ' ')
+        print(Fore.RED + "\nAll gathered Physical/MAC Address's")
         for individual_mac in mac_address:
-            print(Fore.GREEN + individual_mac , end = '  ')
-    print('\n')
+            print(Fore.GREEN + individual_mac)
+    print()
 
 def ip_and_mac_address():
     print()
