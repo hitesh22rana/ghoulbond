@@ -2,6 +2,7 @@ geocoder==1.38.1
 termcolor==1.1.0
 colorama==0.4.4
 requests==2.26.0
+bs4==0.0.1
 prettytable==2.4.0
 phonenumbers==8.12.36
 folium==0.12.1
