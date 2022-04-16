@@ -11,7 +11,6 @@ _headers = {
     'x-runtime': '148ms',
     'etag': '"e1ca502697e5c9317743dc078f67693f"',
     'Access-Control-Allow-Credentials': 'true',
-    'Content-Encoding': 'gzip'
 }
 
 """Global Session For Performance"""
@@ -33,8 +32,10 @@ def username_check():
         'hacker_earth' : f'https://www.hackerearth.com/{username}',
         # LEETCODE
         'leetcode' : f'https://leetcode.com/{username}',
+        # LinkedIn
+        'linkedin' : f'https://www.linkedin.com/in/{username}',
         # INSTAGRAM
-        'instagram' : f'https://www.instagram.com/{username}',
+        'instagram' : f'https://www.instagram.com/{username}/',
         # SNAPCHAT
         'snapchat' : f'https://www.snapchat.com/add/{username}',
         # FACEBOOK
@@ -187,6 +188,8 @@ def username_check():
 
     notIncluded = ["sorry" , "doesn't exist" , "doesn't" , "Try" , "error" , "nobody" , "not"]
 
+    websites_exceptions = ['instagram' , 'linkedin']
+
     print()
     for individual_website in Website_list:
         URL = Website_list[individual_website]
@@ -196,15 +199,15 @@ def username_check():
             soup = BeautifulSoup(response.text , 'lxml')
 
             if(response.status_code == 200):
-    
+                
                 flagCount = 0
                 data = " ".join(soup.text.strip().split())
 
                 for each in notIncluded:
                     if(each in data):
                         flagCount += 1
-
-                if(flagCount < 2 and username in data):
+                
+                if(flagCount < 2 and (username in data or individual_website in websites_exceptions)):
                     print(Fore.LIGHTGREEN_EX + f'[-_0] {username} was Found on {individual_website}')
                     found_list.append(URL)   
                     print()
@@ -226,7 +229,7 @@ def username_check():
             break
 
         except:
-            print(Fore.RED + f'Error Occured while checking! {username} on {individual_website}! Skipping!!')
+            print(Fore.RED + f'[!] Error Occured while checking! {username} on {individual_website}! Skipping!!')
             print()
 
     if(len(found_list) != 0):

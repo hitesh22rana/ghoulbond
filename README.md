@@ -32,7 +32,7 @@ Developed by GhoulBond (c) 2022
         - Country.
         - Time Zone.
 - Target Geo-Location
-    - Gives Approx. Physical Location of The public IP-Address Provided.
+    - Gives Approx. Physical Location of the provided public IP-Address.
 - Internet Speed Test
     - Check's for the best Server for the Speed.
     - Check's Downloading Speed (Mbit/s).
@@ -45,6 +45,10 @@ Developed by GhoulBond (c) 2022
 <br>
 
 ## Setup
+
+Firstly, Python should be installed on your system.
+
+To install Python download from https://www.python.org/downloads/
 
 ### For Window Users
 ```bash
