@@ -1,15 +1,14 @@
 """Internal Modules"""
-from email.policy import default
-from logo import logo
-from email_scraper import email_scraper
-from password_grabber import passwords
-from address import ip_and_mac_address
-from system_info import sys_info
-from portscanner import port_scan_main
-from phone_details import get_details
-from location import target_location
-from username_check import username_check
-from speed_test import speedTestResult
+from modules.logo import logo
+from modules.email_scraper import email_scraper
+from modules.password_grabber import passwords
+from modules.address import ip_and_mac_address
+from modules.system_info import sys_info
+from modules.portscanner import port_scan_main
+from modules.phone_details import get_details
+from modules.location import target_location
+from modules.username_check import username_check
+from modules.speed_test import speedTestResult
 
 """External Modules"""
 from colorama import Fore

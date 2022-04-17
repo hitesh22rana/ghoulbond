@@ -101,7 +101,6 @@ def windows():
         print(Fore.RED + "\nAll gathered Physical/MAC Address's")
         for individual_mac in mac_address:
             print(Fore.GREEN + individual_mac)
-    print()
 
 def ip_and_mac_address():
     print()
