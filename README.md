@@ -1,5 +1,5 @@
 # 👀ghoulbond
-System Utility , Scanner and Social Engineering tool.
+System Utility , Scanner and OSINT tool.
 
 Developed by GhoulBond (c) 2022
 <br>
