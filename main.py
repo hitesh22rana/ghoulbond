@@ -47,30 +47,30 @@ if __name__ == '__main__':
             if(type(menu_input) == int):
 
                 """Menu-choice"""
-                match(menu_input):
-                    case 1:
-                        sys_info()
-                    case 2:
-                        ip_and_mac_address()
-                    case 3:
-                        passwords()
-                    case 4:
-                        email_scraper()
-                    case 5:
-                        port_scan_main()
-                    case 6:
-                        get_details()
-                    case 7:
-                        target_location()
-                    case 8:
-                        speedTestResult()
-                    case 9:
-                        username_check()
-                    case 10:
-                        print(Fore.YELLOW + "\nThanks For Using ghoulbond\n")
-                        break
-                    case _:
-                        print(Fore.RED + "\nInvalid Input!\n")
+                if(menu_input == 1):    
+                    sys_info()
+                elif(menu_input == 2):
+                    ip_and_mac_address()
+                elif(menu_input == 3):
+                    passwords()
+                elif(menu_input == 4):
+                    email_scraper()
+                elif(menu_input == 5):
+                    port_scan_main()
+                elif(menu_input == 6):
+                    get_details()
+                elif(menu_input == 7):
+                    target_location()
+                elif(menu_input == 8):
+                    speedTestResult()
+                elif(menu_input == 9):
+                    username_check()
+                elif(menu_input == 10):
+                    print(Fore.YELLOW + "\nThanks For Using ghoulbond\n")
+                    break
+                else:
+                    print(Fore.RED + "\nInvalid Input!\n")
+                    
             else:
                 print(Fore.RED + "\nInvalid Input!\n")
 

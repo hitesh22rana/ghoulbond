@@ -228,7 +228,7 @@ def username_check():
             print(Fore.RED+'\n[-] Closing!\n')
             break
 
-        except:
+        except Exception as e:
             print(Fore.RED + f'[!] Error Occured while checking! {username} on {individual_website}! Skipping!!')
             print()
 
