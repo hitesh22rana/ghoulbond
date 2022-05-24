@@ -48,7 +48,7 @@ def other_than_windows():
         print(Fore.RED + "\nAll gathered Physical/MAC Address's")
         for individual_mac in mac_address:
             print(Fore.GREEN + individual_mac)
-    print()
+    print(Fore.RESET)
         
         
 """For windows"""
@@ -71,10 +71,10 @@ def windows():
 
     """Host name"""
     if(len(host_names) == 0):
-        print(Fore.RED + "\nHost Name is not found\n")
+        print(Fore.RED + "Host Name is not found\n")
     
     else:
-        print(Fore.RED + "\nHost Name")
+        print(Fore.RED + "Host Name")
         for individual_host in host_names:
             print(Fore.GREEN + individual_host)
 
@@ -101,6 +101,7 @@ def windows():
         print(Fore.RED + "\nAll gathered Physical/MAC Address's")
         for individual_mac in mac_address:
             print(Fore.GREEN + individual_mac)
+    print(Fore.RESET,end='')
 
 def ip_and_mac_address():
     print()
