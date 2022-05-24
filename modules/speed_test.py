@@ -1,4 +1,5 @@
 """Moudles"""
+import colorama
 import speedtest
 from colorama import Fore
 
@@ -37,6 +38,7 @@ def downloadAndUploadTest():
     print(Fore.GREEN + f"Download Speed : {round(downloadSpeed/1024/1024 , 2)} Mbit/s")
     print(Fore.GREEN + f"Upload Speed : {round(uplaodSpeed/1024/1024 , 2)} Mbit/s")
     print(Fore.GREEN + f"Ping : {ping} ms")
+    print(Fore.RESET)
 
 """Main Function"""
 def speedTestResult():
