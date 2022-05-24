@@ -24,9 +24,11 @@ def target_location():
 
             target_map.save("target_location.html")
             print(Fore.RED + "\nMap of the target is saved as : " + Fore.GREEN + "target_location.html\n")
+            print(Fore.RESET,end='')
 
     except:
         print("Invalid Public IP Address")
+        print(Fore.RESET,end='')
 
 if __name__ == '__main__':
     target_location()
