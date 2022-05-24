@@ -65,6 +65,7 @@ def passwords():
         ssid_table.add_column("Key",ssid_key)
 
         print(Fore.LIGHTYELLOW_EX + f"\n{ssid_table}\n")
+        print(Fore.RESET,end='')
 
 if __name__ == '__main__':
     passwords()
