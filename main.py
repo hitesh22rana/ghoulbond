@@ -12,7 +12,6 @@ from modules.speed_test import speedTestResult
 
 """External Modules"""
 from colorama import Fore
-from termcolor import colored
 import logging, coloredlogs
 
 logger = logging.getLogger(f"Logger")
