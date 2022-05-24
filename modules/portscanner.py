@@ -1,9 +1,7 @@
 """Modules"""
-import os
 import socket
 import datetime
 import sys
-import time
 from colorama import Fore
 from IPy import IP
 
@@ -168,7 +166,7 @@ def port_scan_main():
         pass
     else:
         fetch_results()
-
+    print(Fore.RESET,end='')
 
 if __name__ == "__main__":
     port_scan_main()
