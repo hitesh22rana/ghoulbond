@@ -79,7 +79,7 @@ def email_scraper():
         for mail in emails:
             print(Fore.YELLOW + f"{mail}")
     
-    print()
+    print(Fore.RESET)
 
 if __name__ == '__main__':
     email_scraper()
