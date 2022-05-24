@@ -64,7 +64,7 @@ def get_details():
     country_history(number)
     service_provider_details(number)
     time_zone_details(number)
-    print('\n')
+    print(Fore.RESET)
 
 
 if __name__ == '__main__':
