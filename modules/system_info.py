@@ -162,6 +162,7 @@ def sys_info():
         monitor_battery()
     except Exception as e:
         print(Fore.RED + "Error Occured : " + Fore.GREEN + f"{e}")
+    print(Fore.RESET)
 
 if __name__ == '__main__':
     sys_info()
