@@ -8,7 +8,11 @@ from modules.portscanner import port_scan_main
 from modules.phone_details import get_details
 from modules.location import target_location
 from modules.username_check import username_check
-from modules.speed_test import speedTestResult
+
+try:
+    from modules.speed_test import speedTestResult
+except:
+    print("Unable to Load SpeedTest Library")
 
 """External Modules"""
 from colorama import Fore

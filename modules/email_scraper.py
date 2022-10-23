@@ -6,7 +6,7 @@ import urllib.parse
 from collections import deque
 import re
 from colorama import Fore
-
+from email_validator import validate_email
 
 """Headers For Performance"""
 _headers = {
@@ -22,10 +22,16 @@ _headers = {
 """Global Session For Performance"""
 session = requests.session()
 
+"""Email Validator"""
+def isValidEmail(email: str) -> bool:
+    try:
+        validate_email(email=email) 
+        return True
+    except:
+        return False
 
 """main function"""
 def email_scraper():
-
     user_url = str(input(Fore.RED+'[+] Enter Target URL To Scan : '))
     urls = deque([user_url])
     scraped_urls = set()
@@ -40,6 +46,7 @@ def email_scraper():
                 break
 
             url = urls.popleft()
+            url = url.replace('\\\\','//')
             scraped_urls.add(url)
 
             parts = urllib.parse.urlsplit(url)
@@ -47,14 +54,14 @@ def email_scraper():
 
             path = url[:url.rfind('/')+1] if '/' in parts.path else url
 
-            print(Fore.CYAN+'[%d] Processing %s' % (count, url))
+            print(Fore.CYAN+'[%d] Processing %s' % (count, url))           
 
             try:
                 response = session.get(url,headers=_headers,timeout=10)
             except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
                 continue
 
-            new_emails = set(re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", response.text, re.I))
+            new_emails = set(re.findall(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b", response.text, re.I))
             emails.update(new_emails)
 
             soup = BeautifulSoup(response.text, features="lxml")
@@ -75,9 +82,17 @@ def email_scraper():
         print(Fore.RED+"No Email's found\n")
     
     else:
-        print(Fore.GREEN +"\nAll found Email's\n")
+        print(Fore.GREEN +"\nAll found Email's")
+        print(Fore.GREEN +"Validating Email's, This may take some time hang on!!\n")
+
+        emailsList = []
+
         for mail in emails:
-            print(Fore.YELLOW + f"{mail}")
+            if(isValidEmail(mail)):
+                emailsList.append(mail)
+
+        for email in emailsList:
+            print(Fore.YELLOW + f"{email}")
     
     print(Fore.RESET)
 
