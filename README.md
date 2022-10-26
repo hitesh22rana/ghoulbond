@@ -47,7 +47,6 @@ Developed by GhoulBond (c) 2022
 ## Setup
 
 Firstly, Python should be installed on your system.
-
 To install Python download from https://www.python.org/downloads/
 
 ### For Window Users
@@ -71,6 +70,22 @@ After Installation just run this command :-
 ### For Linux/Mac Users
 ```bash
     python3 main.py
+```
+
+### Docker Setup
+
+Firstly, Docker should be installed on your system.
+To install Docker download from https://www.docker.com/
+
+## Use
+
+After Installation just run the below mentioned commands :-
+```bash
+docker build -t ghoulbond .
+```
+
+```bash
+docker run -it --name ghoulbond ghoulbond
 ```
 
 ## Contributing Guidlines
